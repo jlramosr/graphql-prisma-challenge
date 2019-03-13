@@ -139,7 +139,7 @@ Firstly, modify the Prisma API schema with the new types and fields, indicating 
 * **nif**: only visible for users of the Company.
 * **users**: only visible for users of the Company.
 
-Deploy the PRISMA API, check your feature with the GrahpQL API Playground (*localhost:4000*)
+Deploy the PRISMA API and check your feature with the GrahpQL API Playground from *localhost:4000*
 
 When you finish, push the branch to a public repository and file a pull request.
 
