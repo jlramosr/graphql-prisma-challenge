@@ -4,12 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "env-cmd ./config/dev.env nodemon src/index.js --ext js,graphql --exec babel-node",
+    "dev": "npm run graphqlAPI",
     "test": "env-cmd ./config/test.env jest --watch --runInBand",
-    "prisma-dev-deploy": "prisma deploy -e config/dev.env && npm run get-schema",
-    "prisma-dev-reset": "prisma delete -e config/dev.env && npm run prisma-dev-deploy",
-    "prisma-dev-token": "prisma token -e config/dev.env",
-    "get-schema": "graphql get-schema -p prisma --dotenv config/dev.env"
+    "graphqlAPI": "env-cmd ./config/dev.env nodemon src/index.js --ext js,graphql --exec babel-node",
+    "prismaAPI": "docker-compose -f database/docker-compose.yml up -d",
+    "prismaAPI-deploy": "prisma deploy -e config/dev.env && npm run generate-prisma-schema",
+    "prismaAPI-reset": "prisma delete -e config/dev.env && npm run prismaAPI-deploy",
+    "prismaAPI-token": "prisma token -e config/dev.env",
+    "generate-prisma-schema": "graphql get-schema -p prisma --dotenv config/dev.env"
   },
   "jest": {
     "globalSetup": "./tests/jest/globalSetup.js",
