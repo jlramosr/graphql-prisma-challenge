@@ -1,5 +1,5 @@
 {
-  "name": "graphql-basics",
+  "name": "graphql-prisma-challenge",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -17,7 +17,11 @@
     "globalSetup": "./tests/jest/globalSetup.js",
     "globalTeardown": "./tests/jest/globalTeardown.js"
   },
-  "author": "",
+  "author": "Jose Ramos <jlramosr@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jlramosr/graphql-prisma-challenge.git"
+  },
   "license": "ISC",
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
