@@ -78,7 +78,7 @@ npm run prismaAPI-token
 
 ### GraphQL API
 
-Go to `localhost:4000` to access to GraphQL API. We can do public queries and mutations without any security token. For logged operations, we need to execute the `login` query and add the obtained token in the Playground section of *HTTP HEADERS* in the same way as Prisma API Playground. This token will identify myself on the API and I will be already logged.
+Go to `localhost:4000` to access to GraphQL API. We can do public queries and mutations without any security token. For logged operations, we need to execute the `login` query and add the obtained token in the Playground section of *HTTP HEADERS* in the same way as Prisma API Playground. This token will identify myself on the API and I will be already logged in.
 
 ![docs/graphql-api-token.png](docs/graphql-api-token.png)
 
@@ -90,7 +90,7 @@ This project includes the scaffold in order to start the challenge. With the sou
 
 ![docs/exercise-first-part.png](docs/exercise-first-part.png)
 
-An user can belong to a Company, which only has a name and a NIF (both strings, unique and required). It's not neccesary that an user belongs to a Company. An user can create a holiday, with the start date and the end date required and an optional comment. For now, a user can note all holidays he wants. The only restriction is that days between holidays don't overlap. 
+An user can belong to a Company, which only has a name and a NIF (both strings, unique and required). It's not neccesary that an user belongs to a Company. An user can create a holiday, with the start date and the end date required and an optional comment. For now, an user can note all holidays he wants. The only restriction is that days between holidays don't overlap. 
 
 ### Development
 
@@ -102,7 +102,7 @@ Firstly, modify the Prisma API schema with the new types and fields, indicating 
 
 #### Queries
 
-* **users**: modify the current one to return all the users created in the database, but only if I'm logged. Keep the filters.
+* **users**: modify the current one to return all the users created in the database, but only if I'm logged in. Keep the filters.
 
 * **companies**: return all companies registered in the database. It can be filtered by name (*name__contains*). It's a public query.
 
@@ -114,17 +114,17 @@ Firstly, modify the Prisma API schema with the new types and fields, indicating 
 
 * **createUser**: modify the current mutation with the possibility to add a new or existent Company.
 
-* **updateUser**: requires to be logged. It may change my name, email or password.
+* **updateUser**: requires to be logged in. It may change my name, email or password.
 
-* **changeMyCompany**: requires to be logged. It changes my current company with the new one provided by id.
+* **changeMyCompany**: requires to be logged in. It changes my current company with the new one provided by id.
 
-* **createCompany**: requires to be logged. It creates a new Company with the name and the NIF. The user who make the action, automatically will belong to the new Company. If the company already exists, show an error.
+* **createCompany**: requires to be logged in. It creates a new Company with the name and the NIF. The user who make the action, automatically will belong to the new Company. If the company already exists, show an error.
 
-* **updateCompany**: requires to be logged. It updates my company (name and/or NIF).
+* **updateCompany**: requires to be logged in. It updates my company (name and/or NIF).
 
-* **createHoliday**: requires to be logged. Create a holiday period for me, with the start date, the end date and an optional comment.
+* **createHoliday**: requires to be logged in. Create a holiday period for me, with the start date, the end date and an optional comment.
 
-* **deleteHoliday**: requires to be logged and the holiday belongs to me. It deletes a holiday period by id.
+* **deleteHoliday**: requires to be logged in and the holiday belongs to me. It deletes a holiday period by id.
 
 #### Resolvers
 
